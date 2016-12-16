@@ -17,4 +17,8 @@
     <select id="getProductsById" parameterType="string" resultMap="result">
         SELECT prod_Id,vend_Id,prod_Id,prod_Name,prod_Price,prod_Desc FROM products WHERE prod_Id=#{VALUE }
     </select>
+
+    <update id="updateProducts" parameterType="products">
+        UPDATE products SET vend_Id=#{vendId},prod_Id=#{prodId},prod_Name=#{prodName},prod_Price=#{prodPrice},prod_Desc=#{prodDesc} WHERE prod_Id=#{prodId}
+    </update>
 </mapper>

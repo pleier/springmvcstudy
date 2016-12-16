@@ -11,4 +11,5 @@ public interface ProductsService {
     //查询所有的商品
     public List<Products> listAll() throws Exception;
     public Products getProductsById(String proId) throws Exception;
+    public void updateProducts(Products products) throws Exception;
 }

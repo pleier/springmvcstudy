@@ -24,4 +24,9 @@ public class ProductsServiceImpl implements ProductsService {
     public Products getProductsById(String proId) throws Exception{
         return productsMapper.getProductsById(proId);
     }
+
+    @Override
+    public void updateProducts(Products products) throws Exception {
+        productsMapper.updateProducts(products);
+    }
 }

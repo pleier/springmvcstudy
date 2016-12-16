@@ -10,4 +10,5 @@ import java.util.List;
 public interface ProductsMapper {
     public List<Products> listAll() throws Exception;
     public Products getProductsById(String proId) throws Exception;
+    public void updateProducts(Products products) throws Exception;
 }
