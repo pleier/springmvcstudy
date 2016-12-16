@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 加载数据库配置文件 -->
+    <!--<properties resource="db.properties"></properties>-->
+
+
+    <!--延迟加载配置-->
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!-- 别名定义 -->
+    <typeAliases>
+        <!-- 单个别名定义 -->
+        <!-- <typeAlias type="model.User" alias="user"/> -->
+        <!-- 批量别名定义,默认别名为类名首字母大小写都可以 -->
+        <package name="com.plei.yang.pojo"/>
+    </typeAliases>
+
+    <!-- 这个为没有与其他框架进行整合的配置方式，与其他框架整合后配置方式不同 -->
+    <!--<environments default="development">-->
+        <!--<environment id="development">-->
+            <!--&lt;!&ndash; 使用JDBC事务管理 &ndash;&gt;-->
+            <!--<transactionManager type="JDBC"></transactionManager>-->
+            <!--&lt;!&ndash; 数据库连接池 &ndash;&gt;-->
+            <!--<dataSource type="POOLED">-->
+                <!--<property name="driver" value="${jdbc.driver}"/>-->
+                <!--<property name="url" value="${jdbc.url}"/>-->
+                <!--<property name="username" value="${jdbc.username}"/>-->
+                <!--<property name="password" value="${jdbc.password}"/>-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
+    <!-- 映射配置 -->
+    <!--<mappers>-->
+        <!--&lt;!&ndash; 注意文件位置  &ndash;&gt;-->
+        <!--&lt;!&ndash; 映射单个文件 &ndash;&gt;-->
+        <!--&lt;!&ndash; <mapper resource="mapper/User.xml"/>-->
+        <!--<mapper resource="mapper/UserMapper.xml"/> &ndash;&gt;-->
+        <!--&lt;!&ndash;使用mapper代理时可以通过class来加载映射文件，但必须遵循一定的规范，mapper接口文件名需-->
+        <!--与mapper.xml文件名相同且在相同的目录下-->
+         <!--&ndash;&gt;-->
+        <!--&lt;!&ndash;  <mapper class="mapper.UserMapper"/> &ndash;&gt;-->
+        <!--<package name="com.plei.yang.mapper"/>-->
+    <!--</mappers>-->
+
+</configuration>

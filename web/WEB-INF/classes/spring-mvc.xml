@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd	
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--配置handler-->
+    <bean id="IteammsController" name="/hello.do" class="com.plei.yang.controller.IteammsController"/>
+    <bean id="IteammsController1"  class="com.plei.yang.controller.IteammsController1"/>
+    <!--<bean class="com.plei.yang.controller.IteammsController3"/>-->
+    <!--开启组件扫描，开启后无需再一个一个将handler配置进来 上面的bin可以不用再配置-->
+    <context:component-scan base-package="com.plei.yang.controller"/>
+
+
+    <!--处理器映射器  多个处理器映射器可以并存-->
+    <!--非注解处理器映射器1
+        根据上面配置的bin的name进行映射
+        如<bean name="/hello.do" class="com.plei.yang.controller.IteammsController"/>
+    -->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <!--非注解处理器映射器2-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+        <!--<property name="mappings">-->
+            <!--<props>-->
+                <!--&lt;!&ndash;IteammsController为配置的bin的id-->
+                <!--如<bean id="IteammsController" class="com.plei.yang.controller.IteammsController"/>-->
+                <!--&ndash;&gt;-->
+                <!--<prop key="/hello1.do">IteammsController</prop>-->
+                <!--<prop key="/hello2.do">IteammsController1</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--注解处理器映射器-->
+    <!--spring3.1之前使用的映射器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>-->
+    <!--spring3.1之后使用的映射器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+
+
+
+    <!--处理器适配器-->
+    <!--非注解的处理器适配器
+        使用这个适配器时要求handler必须实现org.springframework.web.servlet.mvc.Controller接口
+    -->
+    <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
+    <!--另一个非注解的处理器适配器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter"/>-->
+    <!--注解的处理器适配器-->
+    <!--spring3.1之前使用的适配器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>-->
+    <!--spring3.1之后使用的适配器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+
+
+    <!--使用这个配置就默认配置了注解的处理器映射器和注解的处理器适配器
+        在实际开发中使用这个配置
+    -->
+    <mvc:annotation-driven/>
+
+    <!--试图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/project/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+
+    </bean>
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plei.yang.mapper.ProductsMapper">
+    <resultMap id="result" type="products">
+        <id property="prodId" column="prod_Id" />
+        <result property="vendId" column="vend_Id"/>
+        <result property="prodId" column="prod_Id"/>
+        <result property="prodName" column="prod_Name"/>
+        <result property="prodPrice" column="prod_Price"/>
+        <result property="prodDesc" column="prod_Desc"/>
+    </resultMap>
+
+    <select id="listAll" resultMap="result">
+        SELECT prod_Id,vend_Id,prod_Id,prod_Name,prod_Price,prod_Desc FROM products
+    </select>
+
+    <select id="getProductsById" parameterType="string" resultMap="result">
+        SELECT prod_Id,vend_Id,prod_Id,prod_Name,prod_Price,prod_Desc FROM products WHERE prod_Id=#{VALUE }
+    </select>
+</mapper>
